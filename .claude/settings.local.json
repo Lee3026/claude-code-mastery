@@ -4,7 +4,9 @@
       "Bash(echo:*)",
       "Bash(git init:*)",
       "Bash(git -C \"C:\\\\Users\\\\sulhe\\\\claude-code-mastery\" log --oneline -10)",
-      "Bash(python -m http.server:*)"
+      "Bash(python -m http.server:*)",
+      "Bash(git checkout:*)",
+      "Bash(git commit:*)"
     ]
   },
   "outputStyle": "Explanatory"

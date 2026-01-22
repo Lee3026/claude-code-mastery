@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    /**
+     * 카운터 컴포넌트
+     * 숫자를 증가, 감소, 리셋할 수 있는 간단한 카운터
+     */
+    function Counter() {
+      // 카운트 상태 관리
+      const [count, setCount] = useState(0);
+
+      // 카운트 증가 함수
+      const increment = () => {
+        setCount(count + 1);
+      };
+
+      // 카운트 감소 함수
+      const decrement = () => {
+        setCount(count - 1);
+      };
+
+      // 카운트 초기화 함수
+      const reset = () => {
+        setCount(0);
+      };
+
+      return (
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+          <div className="flex flex-col items-center justify-center p-8 font-sans">
+            <h1 className="text-4xl mb-4 text-gray-800">Counter</h1>
+
+            {/* 카운트 표시 영역 */}
+            <div className="text-7xl font-bold my-8 text-blue-600">
+              {count}
+            </div>
+
+            {/* 버튼 그룹 */}
+            <div className="flex gap-4">
+              <button
+                onClick={decrement}
+                className="text-3xl px-6 py-2 rounded-lg bg-blue-600 text-white cursor-pointer transition-colors hover:bg-blue-700 active:bg-blue-800"
+              >
+                -
+              </button>
+
+              <button
+                onClick={reset}
+                className="text-base px-6 py-2 rounded-lg bg-red-600 text-white cursor-pointer transition-colors hover:bg-red-700 active:bg-red-800"
+              >
+                Reset
+              </button>
+
+              <button
+                onClick={increment}
+                className="text-3xl px-6 py-2 rounded-lg bg-blue-600 text-white cursor-pointer transition-colors hover:bg-blue-700 active:bg-blue-800"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // 렌더링
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<Counter />);
+  </script>
+</body>
+</html>
